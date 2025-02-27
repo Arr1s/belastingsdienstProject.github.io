@@ -1,0 +1,11 @@
+#overledenePartnerNee:checked {
+    color: blue;
+}
+
+#akteBestandSturen {
+    display: none;
+}
+
+:has(#partneresSchapsvoorwaardenJa:checked) #akteBestandSturen {
+    display: block;
+}
