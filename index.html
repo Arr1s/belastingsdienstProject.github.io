@@ -14,96 +14,163 @@
     <form action="">
         <details name="delen" open>
             <summary>Gegevens overledene</summary>
-            <fieldset>
-                <fieldset>
-                    <legend>Naam van de overledene</legend>
 
-                    <label for="initialen">Voorletter(s):
-                        <small>Bijv J.</small>
-                        <input type="text" name="voorletters" required>
+            <fieldset id="vraag1">
+                <fieldset>
+                    <fieldset>
+                        <legend>Naam van de overledene</legend>
+
+                        <label>Voorletter(s):
+                            <small>Bijv J.</small>
+                            <input type="text" name="voorletters" required>
+                        </label>
+
+                        <label>Tussenvoegsel(s):
+                            <small>Bijv. van der</small>
+                            <input type="text" name="initialen">
+                        </label>
+
+
+                        <label>Achternaam:
+                            <small>Bijv. Veen</small>
+                            <input type="text" title="Bijv. Veen" name="achternaam" required pattern="[a-zA-Z]*">
+                        </label>
+
+                    </fieldset>
+
+                    <label>Burgerservicenummer overledene:
+                        <small>Format: 123-456-789</small>
+                        <input id="BSN" title="Format: 123-456-789" type="text" name="BSN" maxlength="11" minlength="9"
+                            required>
                     </label>
-    
-                    <label for="tussenvoegsel">Tussenvoegsel(s):
-                        <small>Bijv. van der</small>
-                        <input type="text" name="initialen">
+
+                    <label>Overlijdingsdatum:
+                        <input type="date" name="overlijdingsdatum" max="2025-03-21" pattern="{2}-{2}-{4}" required>
                     </label>
-                    
-    
-                    <label for="achternaam">Achternaam:
-                        <small>Bijv. Veen</small>
-                        <input type="text" name="achternaam" required>
+                </fieldset>
+                <fieldset>
+                    <fieldset>
+                        <legend>Was de overledene getrouwd of had de overledene een
+                            geregistreerd partner op het moment van overlijden?</legend>
+
+                        <label>
+                            <input type="radio" id="overledenePartnerNee" name="overledenPartner" /> Nee<small>U wordt
+                                doorgestuurd naar de volgende vraag</small>
+                        </label>
+
+                        <label>
+                            <input type="radio" id="overledenePartnerJa" name="overledenPartner" />Ja
+                        </label>
+
+                    </fieldset>
+                    <fieldset id="vroegerePartner">
+                        <fieldset>
+                            <legend>Hadden de overledene en diens echtgenoot of
+                                geregistreerd partner huwelijkse of partner schaps-
+                                voorwaarden laten vastleggen in een notariële akte?</legend>
+
+
+                            <label>
+                                <input type="radio" id="partnersSchapsvoorwaardenNee"
+                                    name="partnersSchapsvoorwaarden" /> Nee
+                            </label>
+
+
+                            <label>
+                                <input type="radio" id="partneresSchapsvoorwaardenJa"
+                                    name="partnersSchapsvoorwaarden" /> Ja
+                            </label>
+
+                            <fieldset id="akteBestandSturen">
+                                <label for="akteBestand">Stuur een kopie van de akte mee met de aangifte.</label>
+                                <input type="file">
+                                <input type="submit" value="Sturen">
+                            </fieldset>
+
+                        </fieldset>
+                        <fieldset>
+                            <legend>Hadden de overledene en diens partner een finaal
+                                verrekenbeding?</legend>
+
+                            <label>
+                                <input type="radio" id="finaalVerrekenbedingNee" name="finaalVerrekenbeding" /> Nee
+                            </label>
+
+                            <label>
+                                <input type="radio" id="finaalVerrekenbedingJa" name="finaalVerrekenbeding" />Ja
+                            </label>
+
+                        </fieldset>
+                        <fieldset>
+                            <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+
+                            <label><small>Format: DD / MM / JJJJ</small>
+                                <input type="date" max="2025-03-21">
+                            </label>
+
+                        </fieldset>
+                    </fieldset>
+                </fieldset>
+                <fieldset>
+                    <legend>Had de overledene een testament?</legend>
+
+                    <label>
+                        <input type="radio" id="geenTestament" name="testament" value="nee" required>Nee
                     </label>
-                   
-                </fieldset>
 
-                <label for="Burgerservicenummer overledene">Burgerservicenummer overledene:
-                    <small>Format: 123-456-789</small>
-                    <input type="text" name="BSN" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
-                </label>
+                    <label>
+                        <input type="radio" name="testament" value="ja" required>Ja
+                    </label>
 
-                <label for="Overlijdingsdatum">Overlijdingsdatum:
-                    <input type="date" name="overlijdingsdatum" max="2025-03-21" pattern="{2}-{2}-{4}">
-                </label>
-            </fieldset>
-            <fieldset>
-                <fieldset>
-                    <legend>Was de overledene getrouwd of had de overledene een
-                        geregistreerd partner op het moment van overlijden?</legend>
-                        
-                            <input type="radio" id="overledenePartnerNee" name="overledenPartner" />
-                            <label for="overledenePartnerNee">Nee<small>U wordt doorgestuurd naar de volgende vraag</small></label>
-                      
-                            <input type="radio" id="overledenePartnerJa" name="overledenPartner" />
-                            <label for="overledenePartnerJa">Ja</label>
-                
-                </fieldset>
-                <fieldset>
-                    <legend>Hadden de overledene en diens echtgenoot of
-                        geregistreerd partner huwelijkse of partner schaps-
-                        voorwaarden laten vastleggen in een notariële akte?</legend>
+                    <fieldset>
+                        <Legend>Notaris</Legend>
 
-                        <input type="radio" id="partnersSchapsvoorwaardenNee" name="partnersSchapsvoorwaarden" />
-                        <label for="partnersSchapsvoorwaardenNee">Nee</label>
-                      
-                        <input type="radio" id="partneresSchapsvoorwaardenJa" name="partnersSchapsvoorwaarden" />
-                        <label for="partneresSchapsvoorwaardenJa">Ja</label>
+                        <label>Protocolnummer Notaris:
+                            <small>Protocolnummer</small>
+                            <input type="text" name="protocolnummer" required pattern="[0-9]*">
+                        </label>
 
-                        <div id="akteBestandSturen">
-                            <label for="akteBestand">Stuur een kopie van de akte mee met de aangifte.</label>
-                            <input type="file">
-                            <input type="submit" value="Sturen">
-                        </div>
-                       
-                </fieldset>
-                <fieldset>
-                    <legend>Hadden de overledene en diens partner een finaal
-                        verrekenbeding?</legend>
+                        <fieldset>
+                            <legend>Naam van de notaris</legend>
 
-                        <input type="radio" id="finaalVerrekenbedingNee" name="finaalVerrekenbeding" />
-                        <label for="finaalVerrekenbedingNee">Nee</label>
-                      
-                        <input type="radio" id="finaalVerrekenbedingJa" name="finaalVerrekenbeding" />
-                        <label for="finaalVerrekenbedingJa">Ja</label>
-                       
-                </fieldset>
-                <fieldset>
-                    <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+                            <label>Voorletter(s):
+                                <small>Bijv J.</small>
+                                <input type="text" name="voorletters" required>
+                            </label>
 
-                        <label for="datumPartnerschapsVoorwaarden"><small>Format: DD / MM / JJJJ</small></label>
-                        <input type="date" max="2025-03-21">
-                        
+                            <label>Tussenvoegsel(s):
+                                <small>Bijv. van der</small>
+                                <input type="text" name="initialen">
+                            </label>
+
+                            <label>Achternaam:
+                                <small>Bijv. Veen</small>
+                                <input type="text" name="achternaam" required>
+                            </label>
+                        </fieldset>
+
+                        <label>Vestigingsplaats notaris:
+                            <input type="text" name="vestigingsplaats" list="plaatsen" required>
+                            <datalist id="plaatsen">
+                                <option value="Hilversum">Noord-Holland</option>
+                                <option value="Amsterdam">Noord-Holland</option>
+                                <option value="Amesfoort">Utrecht</option>
+                                <option value="Den Haag">Zuid-Holland</option>
+                            </datalist>
+                        </label>
+
+                    </fieldset>
                 </fieldset>
             </fieldset>
-            <fieldset>
-                1d
-            </fieldset>
-        </fieldset>
-    </details>
-    <details name="delen">
-        <summary>Gegevens gemachtigde</summary>
-        <p>Testen</p>
-    </details>
+        </details>
+        <details name="delen" id="vraag2">
+            <summary>Gegevens gemachtigde</summary>
+            <p>Testen</p>
+        </details>
+        <input type="submit">
     </form>
+
+    <script src="./script.js"></script>
 </body>
 
 </html>

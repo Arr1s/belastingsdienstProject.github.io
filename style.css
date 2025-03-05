@@ -1,3 +1,23 @@
+form {
+    display: grid;
+}
+
+summary {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+legend {
+    font-weight: bold;
+}
+
+fieldset {
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 #overledenePartnerNee:checked {
     color: blue;
 }
@@ -8,4 +28,30 @@
 
 :has(#partneresSchapsvoorwaardenJa:checked) #akteBestandSturen {
     display: block;
+}
+
+input:user-invalid {
+    border: 1px solid red;
+}
+
+input:user-valid {
+    border: 1px solid green;
+}
+
+:has(input[type="text"]:user-invalid) > small {
+    animation: forwards infinite colorChange 2s;
+}
+
+@keyframes colorChange {
+    100% {
+        color: red;
+        /* font-weight: bold; */
+    }
+    0% {
+        color: black;
+    }
+}
+
+:has(#overledenePartnerNee:checked) #vroegerePartner {
+    display: none;
 }
