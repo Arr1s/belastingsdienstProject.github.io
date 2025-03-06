@@ -26,9 +26,11 @@
 
 // Het BSN nummer moet per cijfer vermenigvuldigd worden met de hoeveelheid cijfers die na hem komen + zichzelf.
 
-
-const input = document.getElementById("BSN");
-const validityState = input.validity;
+const inputBSN = document.getElementById("BSN");
+const inputDOD = document.getElementById("dod");
+// const inputLname = document.getElementById("lname");
+const validityStateBSN = inputBSN.validity;
+const validityStateDOD = inputDOD.validity;
 
 // BSN.addEventListener('input', validate(BSN) {
   
@@ -38,20 +40,35 @@ const validityState = input.validity;
 //     console.log(BSN);
 // });
 
-BSN.addEventListener('input', function(BSN) {
-    if (validityState.tooShort) {
-        input.setCustomValidity("Uw BSN nummer is te kort.");
-      } else if (validityState.patternMismatch) {
+BSN.addEventListener('blur', function() {
+    if (validityStateBSN.tooShort) {
+        inputBSN.setCustomValidity("Uw BSN nummer is te kort.");
+      } else if (validityStateBSN.patternMismatch) {
         input.setCustomValidity("Volg alstublieft het format: 123-456-789");
-      } else if (validityState.valueMissing) {
-        input.setCustomValidity("Vul alstublieft uw BSN nummer in.");
-      } else if (validityState.tooLong) {
-        input.setCustomValidity("Uw BSN nummer is te lang.");
+      } else if (validityStateBSN.valueMissing) {
+        inputBSN.setCustomValidity("Vul alstublieft uw BSN nummer in.");
+      } else if (validityStateBSN.tooLong) {
+        inputBSN.setCustomValidity("Uw BSN nummer is te lang.");
       } else {
-        input.setCustomValidity("");
+        inputBSN.setCustomValidity("");
+        inputBSN.classList.add("valid");
       }
     
-      input.reportValidity();
+      inputBSN.reportValidity();
+});
+
+dod.addEventListener('blur', function(BSN) {
+    if (validityStateDOD.rangeUnderflow) {
+        inputDOD.setCustomValidity("Kies een actuele datum.");
+      } else if (validityStateDOD.rangeOverflow) {
+        inputDOD.setCustomValidity("Kies een actuele datum.");
+      } else if (validityStateDOD.valueMissing) {
+        inputDOD.setCustomValidity("Vul alstublieft een datum in.");
+      } else {
+        inputDOD.setCustomValidity("");
+        inputDOD.classList.add("valid");
+      }
+      inputDOD.reportValidity();
 });
 
 const test = document.getElementById("geenTestament");
@@ -78,4 +95,38 @@ test.addEventListener('input', function() {
     }
 });
 
-console.log(test)
+// const form = 
+// localStorage.setItem()
+
+// new URLSearchParams(new FormData($0)).toString()
+
+// constrain validation
+// input.parentNode.classList.add('error')
+// ev.preventDefault()
+// Rangeoverflow voor date input
+
+// document.querySelectorAll('.checkboxes fieldset:first-of-type input').forEach(function(radio) {
+//     radio.addEventListener('change', function() {
+//         const fieldsets = document.querySelectorAll('.checkboxes fieldset:nth-of-type(2),.checkboxes fieldset:nth-of-type(3)');
+//         fieldsets.forEach(function(fieldset) {
+//             const nee = (document.querySelector('.checkboxes fieldset:first-of-type input:checked').value === 'nee');
+//             fieldset.disabled = nee;
+//             fieldset.querySelectorAll('input').forEach(function (input) {
+//                 if (nee) {
+//                     input.removeAttribute('required');
+//                 } else {
+//                     input.setAttribute('required', 'required');
+//                 }
+//             });
+//         });
+//     });
+// });
+
+const overledenPartner = document.getElementById("overledenePartnerJa");
+const vraag1B = document.querySelectorAll('#vroegerePartner');
+
+overledenPartner.addEventListener("change", () => {
+  vraag1B.forEach((item) => {
+    item.disabled = !item.disabled;
+  });
+});

@@ -1,5 +1,41 @@
+:root {
+    --NS-main-geel: #FFC917;
+    --NS-donkerblauw: #003082;
+    --NS-buttons: #0063D3;
+    --NS-white: #FFFFFF;
+    --NS-Background-color: #E6E6E9;
+    --NS-error-color: #DB0029;
+    --NS-success-color: #009A42;
+    --NS-textlink-color: #0079D3;
+    --NS-buttonhover-blauw: #005CA0;
+    --NS-buttonhover-geel: #FFB519;
+    --NS-tekst-zwart: #070721;
+    --divider: #39394D;
+}
+
+* {
+    margin: 0;
+}
+
+header {
+    background-color: var(--NS-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--NS-error-color);
+    height: 60px;
+    /* position: fixed; */
+    width: 100%;
+}
+
+body {
+    background-color: var(--NS-Background-color);
+}
+
 form {
     display: grid;
+    background-color: var(--NS-main-geel);
+    margin: 1%;
 }
 
 summary {
@@ -11,6 +47,16 @@ legend {
     font-weight: bold;
 }
 
+small {
+    text-align: end;
+}
+
+hr {
+    border: 0.1px solid var(--divider);
+    width: 90%;
+    height: 0;
+    align-self: center;
+}
 fieldset {
     display: block;
     border: none;
@@ -18,8 +64,14 @@ fieldset {
     padding: 0;
 }
 
-#overledenePartnerNee:checked {
-    color: blue;
+fieldset:has(input[type="radio"]) {
+    display: flex;
+    flex-direction: column;
+}
+
+label:has(input[type="text"], input[type="date"]) {
+    display: flex;
+    flex-direction: column;
 }
 
 #akteBestandSturen {
@@ -31,27 +83,72 @@ fieldset {
 }
 
 input:user-invalid {
-    border: 1px solid red;
+    border: 1px solid var(--NS-error-color);
 }
 
 input:user-valid {
-    border: 1px solid green;
+    border: 1.5px solid var(--NS-success-color);
 }
 
 :has(input[type="text"]:user-invalid) > small {
-    animation: forwards infinite colorChange 2s;
+   color: var(--NS-error-color);
 }
 
-@keyframes colorChange {
-    100% {
-        color: red;
-        /* font-weight: bold; */
-    }
-    0% {
-        color: black;
-    }
-}
+:has(input[type="text"]:user-valid) > small {
+    color: var(--NS-succes-color);
+ }
 
 :has(#overledenePartnerNee:checked) #vroegerePartner {
     display: none;
+}
+
+.hoofdvraag {
+    margin: 1%;
+}
+
+.ABdeelvraag {
+    padding: 1%;
+
+}
+
+.gedeeldeDeelVraag {
+    display: flex;
+    background-color: var(--NS-white);
+    padding: 1%;
+}
+
+.gedeeldeDeelVraag:not(.hoofdvraag:first-of-type) {
+    margin-bottom: 1em;
+}
+
+.gedeeldeDeelVraag label {
+    width: 100%;
+}
+
+.gedeeldeDeelVraag input[type="text"] {
+    margin: 1px;
+}
+
+@media (max-width: 516px) {
+    .gedeeldeDeelVraag {
+        flex-direction: column;
+    }
+    .gedeeldeDeelVraag label {
+        width: 100%;
+    }
+    form {
+        margin: 0;
+    };
+}
+
+.popoverbutton {
+    anchor-name: --infobox;
+    margin: 0;
+}
+
+div {
+    position: absolute;
+    position-anchor: --infobox;
+    position-area: top;
+    padding: 1em;
 }
