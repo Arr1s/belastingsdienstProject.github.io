@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -13,33 +13,31 @@
         <h1>
             Dit is een school project, NIET echt invullen!
         </h1>
-    </header>
-    <h1>Aangifte erfbelasting</h1>
-   
 
-    <form action="">
+    </header>
+    <form data-form-topic="foo">
         <details name="delen" open>
             <summary>Gegevens overledene</summary>
 
             <fieldset id="vraag1" class="hoofdvraag">
                 <fieldset class="ABdeelvraag">
-                    <legend>1A</legend>
+                    <!-- <legend>1A</legend> -->
                     <fieldset class="gedeeldeDeelVraag">
                         <legend>Naam van de overledene</legend>
 
                         <label>Voorletter(s):
                             <small>Bijv. J.</small>
-                            <input type="text" name="voorletters" title="Bijv. J." required>
+                            <input type="text" id="fname" name="voorlettersOverleden" title="Bijv. J." required>
                         </label>
 
                         <label>Tussenvoegsel(s):
                             <small>Bijv. van der</small>
-                            <input type="text" name="initialen">
+                            <input type="text" name="initialenOverleden">
                         </label>
 
                         <label>Achternaam:
                             <small>Bijv. Veen</small>
-                            <input type="text" id="lname" title="Bijv. Veen" name="achternaam" required pattern="[a-zA-Z]*">
+                            <input type="text" id="lname" title="Bijv. Veen" name="achternaamOverleden" required pattern="[a-zA-Z]*">
                         </label>
 
                     </fieldset>
@@ -59,49 +57,52 @@
                 </fieldset>
                 <hr>
                 <fieldset class="ABdeelvraag">
-                    <legend>1B</legend>
+                    <!-- <legend>1B</legend> -->
                     <fieldset class="gedeeldeDeelVraag">
                         <legend>Was de overledene getrouwd of had de overledene een
                             geregistreerd partner op het moment van overlijden?</legend>
 
                         <label>
-                            <input type="radio" id="overledenePartnerNee" name="overledenPartner" value="nee" /> Nee<small>Ga naar vraag 1D</small>
+                            <input type="radio" id="overledenePartnerNee" name="overledenPartner" value="nee" data-toggle-fieldset="vroegerePartner" /> Nee<small>Ga naar vraag 1D</small>
                         </label>
 
                         <label>
-                            <input type="radio" id="overledenePartnerJa" name="overledenPartner" value="ja" />Ja
+                            <input type="radio" id="overledenePartnerJa" name="overledenPartner" value="ja" data-toggle-fieldset="vroegerePartner"/>Ja
                         </label>
-
+ 
                     </fieldset>
-                    <fieldset id="vroegerePartner" disabled>
+                    <hr>
+                    <fieldset id="vroegerePartner" data-toggle-fieldset-target>
                         <fieldset class="gedeeldeDeelVraag">
                             <legend>Hadden de overledene en diens echtgenoot of
-                                geregistreerd partner huwelijkse of partner schaps-
-                                voorwaarden laten vastleggen in een <button type="button" popovertarget="showPDF" show-popover>notariële akte</button>?</legend>
+                                geregistreerd partner huwelijkse of partner schaps-voorwaarden laten vastleggen in een <button type="button" popovertarget="showPDF" show-popover>notariële akte</button>?</legend>
                                 <iframe src="toe_aangifte_erf_2023_suc0611t33fd.pdf" width="50%" height="20%" popover id="showPDF"></iframe>
                             <label>
                                 <input type="radio" id="partnersSchapsvoorwaardenNee"
-                                    name="partnersSchapsvoorwaarden" value="nee" /> Nee
+                                    name="partnersSchapsvoorwaarden" value="nee" data-toggle-fieldset="akteBestandSturen"/> Nee
                             </label>
 
                             <label>
-                                <input type="radio" id="partneresSchapsvoorwaardenJa"
-                                    name="partnersSchapsvoorwaarden" value="ja" /> Ja
+                                <input type="radio" id="partnersSchapsvoorwaardenJa"
+                                    name="partnersSchapsvoorwaarden" value="ja" data-toggle-fieldset="akteBestandSturen"/> Ja
                             </label>
-
-                            <fieldset id="akteBestandSturen" class="gedeeldeDeelVraag">
+                            
+                            <fieldset id="akteBestandSturen" class="gedeeldeDeelVraag" data-toggle-fieldset-target>
                                 <label>Stuur een kopie van de akte mee met de aangifte.
-                                    <input type="file" accept="image/png, image/jpeg, image/webp pdf" title="Voeg een: png, jpeg, webp, of PDF bestand toe" required>
+                                    <input type="file" accept="image/png, image/jpeg, image/webp pdf" title="Voeg een: png, jpeg, webp, of PDF bestand toe">
+                        
                                 </label>
                                 <input type="submit" value="Sturen">
+                           
                             </fieldset>
-
+                            <hr>
                         </fieldset>
                         <fieldset class="gedeeldeDeelVraag">
                             <legend>Hadden de overledene en diens partner een <button type="button" class="popoverbutton" popovertarget="showFinaalVerrekenbeding">finaal
                                 verrekenbeding</button>?</legend>
 
                                 <div popover id="showFinaalVerrekenbeding">
+                                    <h2>Finaal verrekenbeding:</h2>
                                     <p>Was de overledene getrouwd op huwelijkse voorwaarden?
                                         Of hadden de overledene en de partner een geregistreerd
                                         partnerschap en hadden zij partnerschapsvoorwaarden?
@@ -124,7 +125,7 @@
                             <label>
                                 <input type="radio" id="finaalVerrekenbedingJa" name="finaalVerrekenbeding" value="ja" />Ja
                             </label>
-
+                            <hr>
                         </fieldset>
                         <fieldset class="gedeeldeDeelVraag">
                             <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
@@ -136,9 +137,8 @@
                         </fieldset>
                     </fieldset>
                 </fieldset>
-                <hr>
                 <fieldset class="ABdeelvraag">
-                    <legend>1D</legend>
+                    <!-- <legend>1D</legend> -->
                     <fieldset class="gedeeldeDeelVraag">
                         <legend>Had de overledene een testament?</legend>
 
@@ -188,6 +188,8 @@
                                     <option value="Amsterdam">Noord-Holland</option>
                                     <option value="Amesfoort">Utrecht</option>
                                     <option value="Den Haag">Zuid-Holland</option>
+                                    <option value="Groningen">Groningen</option>
+                                    <option value="Rotterdam">Zuid-Holland</option>
                                 </datalist>
                             </label>
                         </fieldset>
@@ -204,7 +206,7 @@
             </fieldset>
            
         </details>
-        <input type="submit">
+        <input class="btn" type="submit">
     </form>
 
     <script src="./script.js"></script>
