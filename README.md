@@ -248,6 +248,36 @@ radio.addEventListener('change', function () {
   });
 });
 ```
+
+#### Versie 5
+```
+document.addEventListener("DOMContentLoaded", function () {
+  
+  document.querySelectorAll("[data-toggle-fieldset]").forEach((radio) => {
+    radio.addEventListener("change", function () {
+      const targetFieldsetId = this.dataset.toggleFieldset;
+      const targetFieldset = document.getElementById(targetFieldsetId);
+
+      if (!targetFieldset) {
+        console.error(`Fieldset with ID "${targetFieldsetId}" not found!`);
+        return;
+      }
+
+      Show fieldset if the selected radio button is "yes", hide otherwise
+      if (this.value === "ja") {
+        targetFieldset.style.display = "block";
+      } else {
+        targetFieldset.style.display = "none";
+      }
+    });
+  });
+
+  Hide all controlled fieldsets by default
+  document.querySelectorAll("fieldset[data-toggle-fieldset-target]").forEach((fieldset) => {
+
+  });
+});
+```
 Uiteindelijk heb ik de code goed gekregen en daarna geimplementeerd in de code van `sessionStorage`, wat uiteindelijk niet heel veel meer werk was. Zoals ik al zei is dit de meeste JavaScript die ik ooit in mijn leven heb geschreven, en ik heb er veel van kunnen leren. 
 
 ### Conclusie
@@ -280,9 +310,6 @@ Ik heb eerst veel aan mijn documentatie gezeten, en ervoor gezorgd dat alles tek
 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
 * https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 
-### Pattern:
-* https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
-
 ### Inputs:
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
@@ -290,6 +317,8 @@ Ik heb eerst veel aan mijn documentatie gezeten, en ervoor gezorgd dat alles tek
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
 * https://dev.to/codeclown/styling-a-native-date-input-into-a-custom-no-library-datepicker-2in
+* https://stackoverflow.com/questions/572768/styling-an-input-type-file-button
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
 
 ### Session Storage
 * Code van Jeremy Keith/Rose Mulazada
