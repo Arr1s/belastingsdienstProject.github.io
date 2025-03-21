@@ -3,6 +3,7 @@ Dit is een school project, en niet daadwerkelijk een belastingsformulier, deze d
 
 ## Briefing:
 
+Belastingaangifte doen is een van de meest complexe taken die mensen moeten doen. Als eindopdracht ga je een officiële belasting-PDF omzetten naar een interactief en duidelijk web-formulier.
 
 ## Week 1
 
@@ -288,9 +289,10 @@ Mijn styling is nog steeds niet geweldig, al is het al wel een stuk verbeterd. V
 ## Week 4
 
 ### Proces
-Ik heb eerst veel aan mijn documentatie gezeten, en ervoor gezorgd dat alles tekst er wel zo'n beetje in stond, en op een redelijk overzichtelijke manier.
+Ik heb eerst veel aan mijn documentatie gezeten, en ervoor gezorgd dat alles tekst er wel zo'n beetje in stond, en op een redelijk overzichtelijke manier. Daarna ben ik vooral bezig gegaan met schoonheids verbeteringen, mijn vormgeving was nog steeds behoorlijk matig, maar door wat tips van Vasilis begon er al snel wat vooruitgang in geboekt te worden. Echter begon ik daarna wel in fouten keuzes in m'n code te komen, meer dan ik had verwacht, wat ervoor zorgde dat mijn code uit eindelijk niet helemaal op en top klaar was voor het eindgesprek. 
 
 ### Conclusie
+Ik had inderdaad eerst nog wat meer focus moeten leggen op vormgeving. Zoals Vasilis al had gezegd kwamen er fouten keuzes in mijn code hier uit voort die ik eerder niet door had, wat me uiteindelijk toch wat dwars kwam te zitten, gezien ik er iets te laat mee aan de slag ging.
 
 - - - - 
 
